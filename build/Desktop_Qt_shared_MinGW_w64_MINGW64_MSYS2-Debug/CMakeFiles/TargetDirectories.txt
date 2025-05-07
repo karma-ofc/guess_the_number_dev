@@ -1,0 +1,5 @@
+C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/untitled3.dir
+C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/edit_cache.dir
+C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/untitled3_autogen_timestamp_deps.dir
+C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/untitled3_autogen.dir

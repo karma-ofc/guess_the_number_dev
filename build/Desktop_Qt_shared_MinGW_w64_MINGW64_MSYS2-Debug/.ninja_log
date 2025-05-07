@@ -1,0 +1,13 @@
+# ninja log v6
+67	77	7670262439608148	clean	9c4b4372737ab8da
+32	66	7670262439261429	CMakeFiles/clean.additional	7155004b3956b606
+6	620	7680151753708353	build.ninja	bd67293279881e21
+57	1066	7670266476156462	untitled3_autogen/timestamp	7a908fc6aca147d2
+57	1066	7670266476156462	untitled3_autogen/mocs_compilation.cpp	7a908fc6aca147d2
+6	620	7680151753568282	C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/cmake_install.cmake	bd67293279881e21
+57	1066	7670266476156462	C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/untitled3_autogen/timestamp	7a908fc6aca147d2
+57	1066	7670266476156462	C:/Users/barko/Documents/untitled3/build/Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/untitled3_autogen/mocs_compilation.cpp	7a908fc6aca147d2
+1070	4119	7670266477037648	CMakeFiles/untitled3.dir/main.cpp.obj	84e43f74f5deef60
+1066	4090	7670266476998863	CMakeFiles/untitled3.dir/untitled3_autogen/mocs_compilation.cpp.obj	a35f2e1f635c9ade
+1073	5822	7670266477068615	CMakeFiles/untitled3.dir/mainwindow.cpp.obj	ac9c21545051801c
+5823	6024	7670266524560868	untitled3.exe	d669633dc2c48a70
