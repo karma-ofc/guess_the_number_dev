@@ -1,63 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Игра: Угадай число</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QLabel" name="labelInstruction">
-      <property name="text">
-       <string>Угадайте число от 1 до 100:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="lineEditInput"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonGuess">
-      <property name="text">
-       <string>Проверить</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonReset">
-      <property name="text">
-       <string>Сбросить игру</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="labelFeedback">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QListView" name="listViewHistory"/>
-    </item>
-   </layout>
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>522</width>
+        <height>494</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>Игра: Угадай число</string>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+              <widget class="QLabel" name="labelMin">
+                <property name="text">
+                  <string>От:</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QLineEdit" name="lineEditMin"/>
+            </item>
+            <item>
+              <widget class="QLabel" name="labelMax">
+                <property name="text">
+                  <string>До:</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QLineEdit" name="lineEditMax"/>
+            </item>
+          </layout>
+        </item>
+        <item>
+          <widget class="QPushButton" name="pushButtonStartGame">
+            <property name="minimumSize">
+              <size>
+                <width>500</width>
+                <height>40</height>
+              </size>
+            </property>
+            <property name="maximumSize">
+              <size>
+                <width>500</width>
+                <height>40</height>
+              </size>
+            </property>
+            <property name="styleSheet">
+              <string notr="true">QPushButton { padding: 8px; }</string>
+            </property>
+            <property name="text">
+              <string>Начать игру</string>
+            </property>
+          </widget>
+        </item>
+
+        <item>
+          <spacer name="verticalSpacer">
+            <property name="orientation">
+              <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+              <size>
+                <width>20</width>
+                <height>40</height>
+              </size>
+            </property>
+          </spacer>
+        </item>
+
+        <!-- 🔽 Перемещенные кнопки вниз -->
+        <item>
+          <widget class="QPushButton" name="pushButtonToggleTheme">
+            <property name="text">
+              <string>Переключить тему</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QPushButton" name="pushButtonToggleLanguage">
+            <property name="text">
+              <string>Переключить язык</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QPushButton" name="pushButtonResetRecords">
+            <property name="text">
+              <string>Сбросить рекорды</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QPushButton" name="pushButtonShowRecords">
+            <property name="text">
+              <string>Показать рекорды</string>
+            </property>
+          </widget>
+        </item>
+
+        <!-- Игровой интерфейс -->
+        <item>
+          <widget class="QLabel" name="labelInstruction">
+            <property name="text">
+              <string>Угадайте число:</string>
+            </property>
+            <property name="alignment">
+              <set>Qt::AlignCenter</set>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QLineEdit" name="lineEditInput"/>
+        </item>
+        <item>
+          <widget class="QPushButton" name="pushButtonGuess">
+            <property name="text">
+              <string>Проверить</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QPushButton" name="pushButtonReset">
+            <property name="text">
+              <string>Сбросить игру</string>
+            </property>
+          </widget>
+        </item>
+
+        <!-- Вывод подсказок и истории -->
+        <item>
+          <widget class="QLabel" name="labelFeedback">
+            <property name="text">
+              <string/>
+            </property>
+            <property name="alignment">
+              <set>Qt::AlignCenter</set>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QLabel" name="labelDivisibility">
+            <property name="text">
+              <string/>
+            </property>
+            <property name="alignment">
+              <set>Qt::AlignCenter</set>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QListView" name="listViewHistory"/>
+        </item>
+      </layout>
+    </widget>
   </widget>
- </widget>
- <resources/>
- <connections/>
+  <resources/>
+  <connections/>
 </ui>

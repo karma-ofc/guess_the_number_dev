@@ -1,34 +1,51 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(untitled3 VERSION 0.1 LANGUAGES CXX)
+project(5back VERSION 1.0 LANGUAGES CXX)
 
-# Автоматическая обработка файлов .ui, .moc и .qrc
+# Находим необходимые модули Qt6
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql)
+# Автоматическая обработка файлов Qt (UIC, MOC, RCC)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+# Настройка стандарта C++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Ищем необходимую версию Qt, необходим для использования Qt Widgets
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
-
-# Список исходных файлов проекта
-set(PROJECT_SOURCES
+# Список исходных файлов
+set(SOURCES
     main.cpp
     mainwindow.cpp
+)
+
+set(HEADERS
     mainwindow.h
+)
+
+set(FORMS
     mainwindow.ui
 )
 
-# Создание исполнимого файла
-qt_add_executable(untitled3
-    MANUAL_FINALIZATION
-    ${PROJECT_SOURCES}
+# Создаем исполняемый файл
+add_executable(${PROJECT_NAME}
+    ${SOURCES}
+    ${HEADERS}
+    ${FORMS}
 )
 
-# Подключение библиотеки Qt для работы с Widgets
-target_link_libraries(untitled3 PRIVATE Qt6::Widgets)
+# Подключаем модули Qt
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Widgets Qt6::Sql)
 
-# Финализация проекта для Qt 6
-qt_finalize_executable(untitled3)
+# Копирование каталога с переводами после сборки.
+# Это обеспечит, что файлы переводов окажутся в том же каталоге, что и исполняемый файл,
+# а путь QCoreApplication::applicationDirPath() + "/translations/app_en.qm" будет корректным.
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_SOURCE_DIR}/translations"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>/translations)
+
+# Финальная настройка проекта (для некоторых сборщиков Qt)
+qt_finalize_executable(${PROJECT_NAME})
