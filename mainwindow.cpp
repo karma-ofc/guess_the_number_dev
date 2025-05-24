@@ -10,40 +10,40 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-    , model(new QStringListModel(this))
-    , attemptCount(0)  // Счётчик попыток
-{
-    ui->setupUi(this);
-    ui->listViewHistory->setModel(model);
-    // Кнопка смены темы
-    connect(ui->pushButtonToggleTheme, &QPushButton::clicked, this, [=]() {
-        setDarkTheme(!isDarkTheme);
-        ui->pushButtonStartGame->setStyleSheet("");
-        ui->pushButtonStartGame->setFixedSize(500, 40);
-    });
+    MainWindow::MainWindow(QWidget *parent)
+        : QMainWindow(parent)
+        , ui(new Ui::MainWindow)
+        , model(new QStringListModel(this))
+        , attemptCount(0)  // Счётчик попыток
+    {
+        ui->setupUi(this);
+        ui->listViewHistory->setModel(model);
+        // Кнопка смены темы
+        connect(ui->pushButtonToggleTheme, &QPushButton::clicked, this, [=]() {
+            setDarkTheme(!isDarkTheme);
+            ui->pushButtonStartGame->setStyleSheet("");
+            ui->pushButtonStartGame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        });
 
-    // Кнопка переключения языка (только в главном меню)
-    connect(ui->pushButtonToggleLanguage, &QPushButton::clicked, this, [=]() {
-        isEnglish = !isEnglish;
-        switchLanguage(isEnglish);
-    });
+        // Кнопка переключения языка (только в главном меню)
+        connect(ui->pushButtonToggleLanguage, &QPushButton::clicked, this, [=]() {
+            isEnglish = !isEnglish;
+            switchLanguage(isEnglish);
+        });
 
-    setDarkTheme(true);
+        setDarkTheme(true);
 
-    // Скрываем игровые элементы до старта
-    ui->pushButtonGuess->setVisible(false);
-    ui->pushButtonReset->setVisible(false);
-    ui->lineEditInput->setVisible(false);
-    ui->labelInstruction->setVisible(false);
-    ui->labelFeedback->setVisible(false);
-    ui->labelDivisibility->setVisible(false);
-    ui->listViewHistory->setVisible(false);
-    // Подключаем базу данных
-    initDatabase();
-}
+        // Скрываем игровые элементы до старта
+        ui->pushButtonGuess->setVisible(false);
+        ui->pushButtonReset->setVisible(false);
+        ui->lineEditInput->setVisible(false);
+        ui->labelInstruction->setVisible(false);
+        ui->labelFeedback->setVisible(false);
+        ui->labelDivisibility->setVisible(false);
+        ui->listViewHistory->setVisible(false);
+        // Подключаем базу данных
+        initDatabase();
+    }
 
 MainWindow::~MainWindow()
 {
@@ -182,6 +182,7 @@ void MainWindow::resetToStartMenu()
     ui->pushButtonToggleTheme->setVisible(true);
     ui->pushButtonToggleLanguage->setVisible(true);
     ui->pushButtonShowRecords->setVisible(true);
+    ui->pushButtonResetRecords->setVisible(true);
     ui->lineEditMin->clear();
     ui->lineEditMax->clear();
 }
@@ -237,6 +238,7 @@ void MainWindow::setDarkTheme(bool enabled)
         palette.setColor(QPalette::HighlightedText, QColor("#FFFFFF"));
     }
     qApp->setPalette(palette);
+
 }
 
 void MainWindow::switchLanguage(bool toEnglish)

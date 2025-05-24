@@ -40,26 +40,21 @@
           </layout>
         </item>
         <item>
-          <widget class="QPushButton" name="pushButtonStartGame">
-            <property name="minimumSize">
-              <size>
-                <width>500</width>
-                <height>40</height>
-              </size>
-            </property>
-            <property name="maximumSize">
-              <size>
-                <width>500</width>
-                <height>40</height>
-              </size>
-            </property>
-            <property name="styleSheet">
-              <string notr="true">QPushButton { padding: 8px; }</string>
-            </property>
-            <property name="text">
-              <string>Начать игру</string>
-            </property>
-          </widget>
+<widget class="QPushButton" name="pushButtonStartGame">
+  <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed"/>
+  </property>
+  <property name="minimumHeight">
+    <number>40</number>
+  </property>
+  <property name="styleSheet">
+    <string notr="true">QPushButton { padding: 8px; }</string>
+  </property>
+  <property name="text">
+    <string>Начать игру</string>
+  </property>
+</widget>
+
         </item>
 
         <item>

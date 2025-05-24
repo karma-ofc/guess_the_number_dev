@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(5back VERSION 1.0 LANGUAGES CXX)
+project(backup1 VERSION 1.0 LANGUAGES CXX)
 
 # Находим необходимые модули Qt6
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
@@ -40,12 +40,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Widgets Qt6::Sql)
 
 # Копирование каталога с переводами после сборки.
-# Это обеспечит, что файлы переводов окажутся в том же каталоге, что и исполняемый файл,
-# а путь QCoreApplication::applicationDirPath() + "/translations/app_en.qm" будет корректным.
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
             "${CMAKE_SOURCE_DIR}/translations"
             $<TARGET_FILE_DIR:${PROJECT_NAME}>/translations)
 
-# Финальная настройка проекта (для некоторых сборщиков Qt)
+# Финальная настройка проекта
 qt_finalize_executable(${PROJECT_NAME})
